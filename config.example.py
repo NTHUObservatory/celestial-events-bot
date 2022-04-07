@@ -1,0 +1,2 @@
+CHANNEL='C0XXXXXXXXX'
+TOKEN='xoxb-xxxxxxxxxxxxx-xxxxxxxxxxxxx-XXXXXXXXXXXXXXXXXXXXXXXX'
