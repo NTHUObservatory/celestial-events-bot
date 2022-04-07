@@ -27,6 +27,7 @@ if __name__ == '__main__':
     j = requests.get(url).text
     raw_events = json.loads(j if j[0]!='\ufeff' else j[1:]) # Getting rid of UTF-8 BOM
 
+    flag = True
     for i in range(len(raw_events)-1, -1, -1):
         event = raw_events[i]
         if db.get(Query().DataSN == event['DataSN']):
@@ -34,4 +35,8 @@ if __name__ == '__main__':
         event['date'] = str(datetime.now())
         db.insert(event)
         if i < 4:
+            flag = False
             post(event)
+
+    if (flag):
+        print("It's great! There's nothing to post.")
